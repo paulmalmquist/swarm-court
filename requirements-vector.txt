@@ -1,0 +1,4 @@
+# Optional; NOT required for the local prototype.
+# Resolve from the approved work package source, then pin and test exact versions.
+qdrant-client>=1.14,<2
+fastembed>=0.7,<1

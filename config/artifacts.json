@@ -1,0 +1,140 @@
+[
+  {
+    "id": "readme",
+    "path": "README.md",
+    "title": "Start here",
+    "kind": "guide"
+  },
+  {
+    "id": "handoff",
+    "path": "WORK_HANDOFF.md",
+    "title": "Work Claude handoff",
+    "kind": "plan"
+  },
+  {
+    "id": "plan-001",
+    "path": "plans/PLAN-001.md",
+    "title": "Governed metric certification",
+    "kind": "plan"
+  },
+  {
+    "id": "plan-002",
+    "path": "plans/PLAN-002.md",
+    "title": "Incremental knowledge refresh",
+    "kind": "plan"
+  },
+  {
+    "id": "plan-003",
+    "path": "plans/PLAN-003.md",
+    "title": "Application query audit",
+    "kind": "plan"
+  },
+  {
+    "id": "plan-004",
+    "path": "plans/PLAN-004.md",
+    "title": "Pipeline freshness investigation",
+    "kind": "plan"
+  },
+  {
+    "id": "architecture",
+    "path": "docs/ARCHITECTURE.md",
+    "title": "Coordination architecture",
+    "kind": "architecture"
+  },
+  {
+    "id": "budget",
+    "path": "docs/BUDGET.md",
+    "title": "Budget policy",
+    "kind": "policy"
+  },
+  {
+    "id": "vector-memory",
+    "path": "docs/VECTOR_MEMORY.md",
+    "title": "Local vector memory",
+    "kind": "architecture"
+  },
+  {
+    "id": "motion-spec",
+    "path": "docs/MOTION_AND_OWNERSHIP.md",
+    "title": "Motion and ownership design",
+    "kind": "design"
+  },
+  {
+    "id": "security",
+    "path": "docs/SECURITY.md",
+    "title": "Security boundaries",
+    "kind": "policy"
+  },
+  {
+    "id": "sources",
+    "path": "docs/SOURCES.md",
+    "title": "Verified primary references",
+    "kind": "evidence"
+  },
+  {
+    "id": "runtime",
+    "path": "config/runtime.json",
+    "title": "Budget and execution configuration",
+    "kind": "configuration"
+  },
+  {
+    "id": "connections",
+    "path": "config/connections.json",
+    "title": "Work connection manifest",
+    "kind": "configuration"
+  },
+  {
+    "id": "ledger",
+    "path": "src/ledger.py",
+    "title": "Ownership ledger",
+    "kind": "code"
+  },
+  {
+    "id": "retrieval",
+    "path": "src/retrieval.py",
+    "title": "Local lexical-vector preview",
+    "kind": "code"
+  },
+  {
+    "id": "semantic-adapter",
+    "path": "src/qdrant_adapter.py",
+    "title": "Local Qdrant semantic adapter",
+    "kind": "code"
+  },
+  {
+    "id": "observer",
+    "path": "src/observer.py",
+    "title": "Deterministic file observer",
+    "kind": "code"
+  },
+  {
+    "id": "worker",
+    "path": "src/worker.py",
+    "title": "Budget-gated Claude CLI skeleton",
+    "kind": "code"
+  },
+  {
+    "id": "server",
+    "path": "src/server.py",
+    "title": "Loopback application server",
+    "kind": "code"
+  },
+  {
+    "id": "frontend",
+    "path": "web/app.js",
+    "title": "Interactive court frontend",
+    "kind": "code"
+  },
+  {
+    "id": "styles",
+    "path": "web/styles.css",
+    "title": "Motion and visual design",
+    "kind": "code"
+  },
+  {
+    "id": "tests",
+    "path": "tests/test_core.py",
+    "title": "Core regression tests",
+    "kind": "tests"
+  }
+]

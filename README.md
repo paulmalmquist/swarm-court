@@ -1,27 +1,61 @@
 # Swarm Court · Paul OS
-A local-first, budget-gated agent control room. Synthetic examples, real links to the included plans and source, explicit ownership, motion-driven handoffs, persistent task ledger, and local retrieval.
 
-## Start the prototype
-Python 3.11+; no pip install, Node build, cloud hosting, or credentials required.
+A local-first, budget-gated agent control room for persistent coordination with intermittent Claude reasoning. It makes **ball in court** explicit: who owns the next action, why it is waiting, what evidence supports it, and which plan/code/feature is connected.
+
+## Run it
+
+Python 3.11+ is enough for the prototype. No Node build, cloud database, credentials, or model call is required.
 
 ```bash
+git clone https://github.com/paulmalmquist/swarm-court.git
+cd swarm-court
 python -m src.server
 ```
-Open http://127.0.0.1:8765. State persists in `.runtime/court.sqlite3`. The server binds only to loopback. Run `python -m unittest discover -s tests -v` to test. A standalone preview is in `Swarm-Court-Preview.html`; open it in a desktop browser for the interactive preview. Its state is browser-memory-only, unlike the server.
 
-## What works
-Animated node topology; clickable tasks and nodes; current and accountable ownership; queue, memory, feature, and budget views; source/plan viewer with line numbers and source hashes; local hybrid retrieval; auditable simulated handoffs; pause/resume; state persisted across server restarts; optimistic version checks; an allowlisted artifact registry.
+Open **http://127.0.0.1:8765**.
 
-## What is deliberately not connected
-Claude execution defaults OFF. No company systems, repositories, credentials, Jira, BigQuery, QMS, or production deployments are connected. The example tasks and owner durations are synthetic, not observations of your work. The source links open actual files in this package; no company links are invented.
+State persists in `.runtime/court.sqlite3`. The service binds only to loopback.
 
-Default retrieval is a **384-dimensional hashed lexical-vector preview**, stored locally in SQLite and combined with keyword scores. It is not a pretrained semantic model and must not be represented as Qdrant or semantic quality. The optional production adapter uses local Qdrant + FastEmbed; see `docs/VECTOR_MEMORY.md`. That adapter is included but not integration-tested here, because its dependencies/model were unavailable in this environment.
+## What is live
+
+- Motion-enabled ownership topology with explicit current action owner
+- Multiple concurrent “balls” through a persistent SQLite task ledger
+- Queue filters for human, agent, and blocked work
+- Clickable plan/code/feature links into real repository artifacts
+- Local source viewer with SHA-256 provenance
+- Local 384-dimensional hashed lexical-vector retrieval preview
+- Optional local Qdrant + FastEmbed adapter for work-side validation
+- Fail-closed Claude worker skeleton with one-slot concurrency and budget gates
+- Synthetic handoff simulation with stale-version rejection and audit events
+- Responsive dark-mode interface with reduced-motion support
+
+## Validate
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/api_check.py
+```
+
+Current public build validation: **23 core tests + 12 local HTTP checks passed**, and `web/app.js` passes JavaScript syntax validation.
+
+## Deliberately not connected
+
+Claude execution defaults **OFF**. No Relativity/company systems, Jira, BigQuery, QMS, Confluence, credentials, production deployments, or proprietary data are present in this public repository.
+
+The example tasks are synthetic. The dashboard does not pretend work is happening when idle.
+
+## Memory model
+
+Repository/source-system files remain authoritative for plans, code, definitions, and evidence. SQLite is authoritative for ownership, task state, handoffs, and approvals. The vector index is a **rebuildable retrieval aid**, never the ownership or authorization source of truth.
+
+The default prototype retrieval is a local hashed lexical-vector implementation, not pretrained semantic embeddings. See [docs/VECTOR_MEMORY.md](docs/VECTOR_MEMORY.md) for the Qdrant/FastEmbed work-side path.
 
 ## Work transfer
-Read `WORK_HANDOFF.md` in your work Claude. Inspect your actual Paul OS paths before integrating. Reuse an existing approved local context registry/vector service. Do not create a competing source of truth. All work-specific substitutions are marked `WORK-CONNECT:`. The application does not publish work-system changes or deploy a hosted service.
+
+Give [WORK_HANDOFF.md](WORK_HANDOFF.md) to your work Claude. It is designed to discover the real Paul OS directories, existing vector service, scheduler, governed sources, and permissions before replacing any synthetic connection.
 
 ## Budget stance
-Always-on monitoring is not always-on inference. One Claude slot, deterministic event filtering, batch dispatch, compact retrieval packets, finite retries, and stop-on-limit. A work subscription does NOT necessarily imply prepaid inference: usage-based Enterprise plans bill consumption. Verify the actual organization billing mode before enabling any model calls.
 
-## Public GitHub publication
-See [PUBLISH_GITHUB.md](PUBLISH_GITHUB.md). The prepared release includes a hash-verified publishing helper for `paulmalmquist/swarm-court`. From a fresh extraction, run `python scripts/publish_github.py`; Git and GitHub CLI are required. Repository creation and push occur only when you run that command successfully.
+Always-on monitoring is not always-on inference. The proposed production shape uses deterministic observers, batching, one bounded Claude execution slot, compact retrieval packets, finite retries, and **no automatic paid/API fallback**.
+
+Verify the actual work-seat billing mode and egress policy before enabling unattended model execution.

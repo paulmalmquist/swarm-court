@@ -1,0 +1,22 @@
+# Local execution state and indexes
+.runtime/
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+*.sqlite*
+*.db
+*.db-*
+# Credentials and environment settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+# Local editor/OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

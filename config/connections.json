@@ -1,0 +1,55 @@
+{
+  "note": "WORK-CONNECT: supply verified IDs/paths/URLs; never infer work resources.",
+  "connections": [
+    {
+      "id": "paul-os",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "work-git",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "bigquery",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "jira",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "confluence",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "qms",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    },
+    {
+      "id": "dreamcatcher",
+      "status": "not_connected",
+      "read_only": true,
+      "verified_url": null,
+      "approved_roots": []
+    }
+  ],
+  "source_of_truth": "Repository files and explicit system records, not embedding similarity."
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0c14"><title>Swarm Court · Paul OS</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <a class="brand" href="#/court" aria-label="Swarm Court home"><span class="brandmark">◈</span><div>PAUL OS<small>INTELLIGENCE SYSTEMS</small></div></a>
+  <div class="workspace"><span class="small-orb"></span><div>Swarm Court<small>Local control room</small></div><span class="tiny">v0.1</span></div>
+  <div class="nav-label">OBSERVE & COORDINATE</div>
+  <nav aria-label="Main navigation">
+    <a data-page="court" href="#/court"><span>⌘</span> The court <i>01</i></a>
+    <a data-page="queue" href="#/queue"><span>≡</span> Work queue <i id="nav-count">04</i></a>
+    <a data-page="memory" href="#/memory"><span>▤</span> Local memory</a>
+    <a data-page="features" href="#/features"><span>⬡</span> System features</a>
+    <a data-page="budget" href="#/budget"><span>◴</span> Budget & gates</a>
+  </nav>
+  <div class="sidebar-note"><div class="nav-label">EXECUTION MODEL</div><strong>Many roles.<br>One reasoning slot.</strong><p>Always-on coordination.<br>Claude only when needed.</p><div class="slot"><span></span> 0 / 1 Claude slots active</div></div>
+  <div class="sidebar-bottom"><span class="avatar">P</span><div>Paul Malmquist<small>Accountable human</small></div><span class="tiny">LOCAL</span></div>
+</aside>
+<div class="body">
+  <header class="topbar"><div><span class="muted">Paul OS</span><span class="slash">/</span><strong>Swarm Court</strong></div><div class="header-actions"><span class="mode-badge" id="mode">SYNTHETIC · NOT CONNECTED</span><button class="icon-btn" id="motion" aria-label="Toggle motion">◌ Motion on</button><button class="icon-btn" id="pause">Ⅱ Pause demo</button></div></header>
+  <main id="main">
+    <section class="page-heading"><div><div class="eyebrow">PERSISTENT COORDINATION. INTERMITTENT REASONING.</div><h1 id="page-title">Know who moves next.</h1><p id="page-subtitle">Every task has an owner. Every decision has evidence. Every link goes somewhere real.</p></div><div class="zero-state"><strong id="call-count">0</strong><div>Claude calls<small>Execution disabled</small></div></div></section>
+    <div class="notice"><span>◈</span><div><strong>Interactive prototype</strong> · Example tasks, not work telemetry. Plans and code links open real files included in this package.</div><a href="#/budget">View safety gates ↗</a></div>
+    <section id="view-court" class="view">
+      <div class="stats" id="stats"></div>
+      <div class="court-grid">
+        <section class="panel graph-panel"><div class="panel-heading"><div><h2>Ownership topology</h2><p>Selected task route · click any node to inspect</p></div><span class="pill"><span class="dot"></span> LOCAL LEDGER</span></div><div id="graph" class="graph" aria-label="Interactive ownership graph"></div><div class="graph-legend"><span>Selected route</span><span>Human decision</span><span>Inactive link</span><span id="graph-stamp">Synthetic scenario</span></div></section>
+        <section class="panel owner-panel" id="owner-panel" aria-live="polite"></section>
+      </div>
+      <div class="lower-grid"><section class="panel"><div class="panel-heading"><div><h2>Next actions</h2><p>Specific owners. No ambiguous “in progress.”</p></div><a href="#/queue">Full queue ↗</a></div><div id="mini-queue"></div></section><section class="panel activity-panel"><div class="panel-heading"><div><h2>Handoff ledger</h2><p>Only recorded events appear here</p></div><span class="tiny">AUDITABLE</span></div><div id="activity"></div></section></div>
+    </section>
+    <section id="view-queue" class="view" hidden><div class="panel"><div class="panel-heading"><div><h2>Action ownership</h2><p>Accountable owner stays distinct from the next actor.</p></div><div class="segmented" id="filters"><button data-filter="all" class="selected">All</button><button data-filter="mine">Mine</button><button data-filter="agents">Agents</button><button data-filter="blocked">Blocked</button></div></div><div id="queue-full"></div></div></section>
+    <section id="view-memory" class="view" hidden><div class="memory-grid"><div class="panel"><div class="panel-heading"><div><h2>Find the right context</h2><p>Local retrieval → source excerpt → exact file</p></div><span class="pill">NO CLOUD EMBEDDINGS</span></div><form id="search-form" class="search-form"><label for="query" class="sr-only">Search approved local artifacts</label><input id="query" placeholder="Try: Who approves certification?" autocomplete="off"><button class="primary" type="submit">Retrieve ↗</button></form><div class="search-presets"><button data-query="metric certification approval">Certification approval</button><button data-query="budget billing limits">Budget limits</button><button data-query="vector local source hash">Vector provenance</button></div><div id="search-info" class="search-info"></div><div id="search-results"></div></div><div class="panel memory-aside"><div class="eyebrow">THE RIGHT SOURCE OF TRUTH</div><h2>Recall is not ownership.</h2><p>The vector index finds relevant knowledge. The task ledger tells you whose move it is.</p><div class="memory-layer"><b>01</b><div>Files & source systems<small>Plans, code, evidence. Authoritative.</small></div></div><div class="memory-layer"><b>02</b><div>SQLite task ledger<small>Owners, state, handoffs. Authoritative.</small></div></div><div class="memory-layer"><b>03</b><div>Local vector index<small>Derived, rebuildable context.</small></div></div><button class="secondary full" data-artifact="vector-memory">Open vector architecture ↗</button><div class="backend-note" id="backend-note">Local retrieval only</div></div></div></section>
+    <section id="view-features" class="view" hidden><div class="feature-grid" id="feature-grid"></div><div id="feature-detail"></div></section>
+    <section id="view-budget" class="view" hidden><div id="budget-content"></div></section>
+    <footer><span>SWARM COURT · LOCAL FIRST · EVIDENCE ALWAYS</span><span id="footer-status">No company systems connected</span></footer>
+  </main>
+</div>
+</div>
+<dialog id="artifact-dialog" aria-labelledby="artifact-title"><div class="dialog-head"><div><div class="eyebrow" id="artifact-kind">SOURCE ARTIFACT</div><h2 id="artifact-title"></h2><p id="artifact-path"></p></div><button class="icon-btn" id="close-dialog" aria-label="Close source viewer">✕</button></div><div class="source-meta" id="source-meta"></div><div id="source-lines" class="source-lines"></div></dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
